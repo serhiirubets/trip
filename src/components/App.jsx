@@ -161,7 +161,7 @@ const App = ({data}) => (
 );
 
 App.propTypes = {
-  data: PropTypes.shape(PropTypes.string).isRequired,
+  data: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default App;
