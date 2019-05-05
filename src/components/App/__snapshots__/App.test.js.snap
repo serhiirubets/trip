@@ -353,6 +353,7 @@ exports[`App renders correctly 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
                     First
                   </a>
@@ -454,6 +455,7 @@ exports[`App renders correctly 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
                     Second
                   </a>

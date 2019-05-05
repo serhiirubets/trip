@@ -2,14 +2,9 @@ import React from 'react';
 import PlaceCard from './PlaceCard';
 import renderer from 'react-test-renderer';
 
-const data = Object.freeze([
-  `First`,
-  `Second`,
-]);
-
 it(`PlaceCard renders correctly`, () => {
   const tree = renderer
-    .create(<PlaceCard data={data}/>)
+    .create(<PlaceCard title="Some title" onClick={() => {}} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

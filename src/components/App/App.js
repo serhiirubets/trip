@@ -110,7 +110,13 @@ const App = ({data}) => (
             </select>
             -->*/}
             </form>
-            <PlaceCard data={data} />
+            <div className="cities__places-list places__list tabs__content">
+              {
+                data.map((title) => (
+                  <PlaceCard title={title} onClick={() => {}} key={title} />
+                ))
+              }
+            </div>
           </section>
           <div className="cities__right-section">
             <section className="cities__map map"></section>
