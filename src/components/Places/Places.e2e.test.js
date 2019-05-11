@@ -1,6 +1,6 @@
 import React from 'react';
-import App from './App';
-import renderer from 'react-test-renderer';
+import {mount} from 'enzyme';
+import Places from './Places';
 
 const offers = Object.freeze([
   {
@@ -25,9 +25,11 @@ const offers = Object.freeze([
   },
 ]);
 
-it(`App renders correctly`, () => {
-  const tree = renderer
-    .create(<App data={offers} />)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+it(`Should create Places`, () => {
+  const fn = jest.fn();
+  const wrapper = mount(<Places places={offers} onClick={fn} />);
+  expect(wrapper.find(`.place-card`).length).toBe(offers.length);
 });
+
+
+

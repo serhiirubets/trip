@@ -1,8 +1,4 @@
-import React from 'react';
-import App from './App';
-import renderer from 'react-test-renderer';
-
-const offers = Object.freeze([
+const offers = [
   {
     price: 120,
     title: `Beautiful & luxurious apartment at great location`,
@@ -23,11 +19,6 @@ const offers = Object.freeze([
     title: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
   },
-]);
+];
 
-it(`App renders correctly`, () => {
-  const tree = renderer
-    .create(<App data={offers} />)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
-});
+export default offers;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PlaceCard = ({title, onClick}) => (
+const PlaceCard = ({title, price, type, onClick}) => (
   <article className="cities__place-card place-card">
     <div className="place-card__mark">
       <span>Premium</span>
@@ -15,7 +15,7 @@ const PlaceCard = ({title, onClick}) => (
     <div className="place-card__info">
       <div className="place-card__price-wrapper">
         <div className="place-card__price">
-          <b className="place-card__price-value">&euro;120</b>
+          <b className="place-card__price-value">&euro;{price}</b>
           <span className="place-card__price-text">&#47;&nbsp;night</span>
         </div>
         <button className="place-card__bookmark-button button" type="button">
@@ -32,9 +32,9 @@ const PlaceCard = ({title, onClick}) => (
         </div>
       </div>
       <h2 className="place-card__name">
-        <a href="#" onClick={onClick}>{title}</a>
+        <a href="#" onClick={() => onClick(title)}>{title}</a>
       </h2>
-      <p className="place-card__type">Apartment</p>
+      <p className="place-card__type">{type}</p>
     </div>
   </article>
 );
@@ -42,6 +42,8 @@ const PlaceCard = ({title, onClick}) => (
 PlaceCard.propTypes = {
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  price: PropTypes.number.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default PlaceCard;

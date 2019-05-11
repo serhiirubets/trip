@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PlaceCard from '../PlaceCard/PlaceCard';
+import Places from '../Places/Places';
 
 const App = ({data}) => (
   <div className="page page--gray page--main">
@@ -111,11 +111,7 @@ const App = ({data}) => (
             -->*/}
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {
-                data.map((title) => (
-                  <PlaceCard title={title} onClick={() => {}} key={title} />
-                ))
-              }
+              <Places places={data} onClick={() => {}} />
             </div>
           </section>
           <div className="cities__right-section">
@@ -129,7 +125,11 @@ const App = ({data}) => (
 );
 
 App.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.string).isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default App;
